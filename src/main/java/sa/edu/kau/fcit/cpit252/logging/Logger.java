@@ -1,5 +1,4 @@
 package sa.edu.kau.fcit.cpit252.logging;
-
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -11,8 +10,8 @@ public class Logger {
     String currentDateTimeString = LocalDateTime.now().format(myFormatter);
     private final String logFile = currentDateTimeString + ".txt";
     private PrintWriter writer;
-
-    public Logger() {
+    private static Logger LoggerInstance; 
+    private Logger() {
         try {
             FileWriter fw = new FileWriter(logFile);
             writer = new PrintWriter(fw, true);
@@ -21,6 +20,12 @@ public class Logger {
             ex.printStackTrace();
         }
     }
+   public static Logger getLoggerInstance(){
+       if (LoggerInstance==null){
+           LoggerInstance= new Logger();
+       }
+       return LoggerInstance;
+   }
     public void info (String message) {
         writer.println("INFO: " + message);
     }

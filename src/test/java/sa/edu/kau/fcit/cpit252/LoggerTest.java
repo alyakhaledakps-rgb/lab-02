@@ -1,5 +1,4 @@
 package sa.edu.kau.fcit.cpit252;
-
 import org.junit.Test;
 import sa.edu.kau.fcit.cpit252.logging.Logger;
 
@@ -10,8 +9,8 @@ public class LoggerTest {
     @Test
     public void shouldBeIdenticals()
     {
-        Logger log1 = new Logger();
-        Logger log2 = new Logger();
+        Logger log1 = Logger.getLoggerInstance();
+        Logger log2 =Logger.getLoggerInstance();
         assertEquals(log1, log2);
     }
 }

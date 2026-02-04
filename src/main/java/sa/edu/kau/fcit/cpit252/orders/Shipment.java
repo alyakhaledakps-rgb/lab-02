@@ -1,5 +1,4 @@
 package sa.edu.kau.fcit.cpit252.orders;
-
 import sa.edu.kau.fcit.cpit252.logging.Logger;
 
 import java.util.Random;
@@ -9,7 +8,7 @@ public class Shipment {
     private String name;
     private String address;
     private String phoneNumber;
-    private Logger log = new Logger();
+    private Logger log = Logger.getLoggerInstance();
 
     private int getRandomNumber() {
         Random ran = new Random();
